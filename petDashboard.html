@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Dashboard</title>
+<link rel="stylesheet" href="pD.css" >
+</head>
+<body>
+<header>
+    <h1>Pet Dashboard</h1>
+         <a href="homePage.html" class="tile-link"><button class="home">Home</button></a>
+
+  </header>
+
+<main>
+  <div class="pets-container">
+    <div class="pets-header">My Pets</div>
+    <div class="pets-list">
+      <div class="pet-item" onclick = "petprofile()">Leona</div>
+      <div class="pet-item">Buddy</div>
+      <div class="pet-item">Mittens</div>
+      <div class="pet-item">Rex</div>
+      <div class="pet-item">Bella</div>
+      <div class="pet-item">Charlie</div>
+      <div class="pet-item">Luna</div>
+      <div class="pet-item">Max</div>
+      <div class="pet-item">Daisy</div>
+      <div class="pet-item">Baxter</div>
+      <div class="pet-item">Charlie</div>
+      <div class="pet-item">Lionheart</div>
+      <div class="pet-item">Maddox</div>
+      <div class="pet-item">Dih</div>
+    </div>
+  </div>
+
+  <div class="logs-container">
+    <div class="logs-header">Activity Logs</div>
+    <div class="logs-list">
+      <div class="log-item">Gave Fleas Medicine - Leona - 9:00 AM</div>
+      <div class="log-item">Fed Breakfast - Baxter - 8:00 AM</div>
+      <div class="log-item">Vet Visit Scheduled for Tomorrow - Charlie - 10:30 AM</div>
+      <div class="log-item">Played in the Backyard - Mittens - 6:00 PM</div>
+      <div class="log-item">Ate Lunch - Luna - 1:00 PM</div>
+      <div class="log-item">Gave a Bath - Dih - 5:30 PM</div>
+      <div class="log-item">Evening Bath - Max - 6:00 PM</div>
+      <div class="log-item">Dinner Time - Rex -7:30 PM</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <button class="create-log" onclick="goToCreateLog()">Create Log</button>
+</footer>
+<script>
+  function goToCreateLog() {
+    window.location.href = 'createLog.html';
+  }
+   function petprofile() {
+    window.location.href = 'petProfile.html';
+  }
+</script>
+</body>
+</html>

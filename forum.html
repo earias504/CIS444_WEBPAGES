@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PawPerfect Forum</title>
+  <link rel="stylesheet" href="cat.css">
+</head>
+<body>
+  <header>
+    <h1>🐾 Pawfect Community Forum</h1>
+    <div class="button-row">
+      <button class="tile" onclick="location.href='homePage.html'">HOME</button>
+    </div>
+  </header>
+
+
+
+<h3 style="text-align: center;">Choose a Discussion Topic</h3>
+
+    <div class="main-buttons">
+    <a href="forumTopic.html" class="tile">General Chat</a>
+    <a href="forumTopic.html" class="tile">Cat Health & Care</a>
+  </div>
+
+  <div class="bottom-buttons">
+    <a href="forumTopic.html" class="tile">Adoption Tips</a>
+    <a href="forumTopic.html" class="tile">Funny Cats / Memes</a>
+  </div>
+  
+  <script>
+    // Store selected topic when clicked
+    const buttons = document.querySelectorAll(".tile-link button");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        localStorage.setItem("currentTopic", btn.textContent.trim());
+      });
+    });
+  </script>
+</body>
+</html>

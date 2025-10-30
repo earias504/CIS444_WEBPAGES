@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donations</title>
+  <link rel="stylesheet" href="cat.css">
+  <script defer src="donations.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Make a Donation: Help These Cats Today</h1>
+    <div class="button-row">
+      <a href="homePage.html" class="tile">HOME</a>
+
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="profile-section" style="flex-direction: column; gap: 25px; max-width: 600px; text-align: center;">
+      <div class="user-info" style="align-items: center;">
+        <p style="font-size: 1.1em; margin: 0;">
+          Maybe you can't adopt right now, but you can still make a big difference.
+        </p>
+        <p style="margin: 0;">
+          Your donation helps provide food, vaccines, spays, neuters, blankets, clean water,
+        </p>
+        <p style="margin: 0 0 20px 0;">
+          and adoption fee assistance for others. Every dollar helps a cat in need!
+        </p>
+      </div>
+
+      <div class="donation-options">
+        <h2>Choose a Donation Amount:</h2>
+
+        <div class="donation-buttons" style="margin: 15px 0;">
+          <button class="donation-button" data-amount="10">$10</button>
+          <button class="donation-button" data-amount="25">$25</button>
+          <button class="donation-button" data-amount="50">$50</button>
+          <button class="donation-button" data-amount="100">$100</button>
+        </div>
+
+        <label for="custom-amount"><strong>Or, Enter a Custom Amount:</strong></label>
+        <input 
+          type="number" 
+          id="custom-amount" 
+          placeholder="Enter amount (USD)" 
+          min="1" 
+          style="padding: 10px; border-radius: 10px; border: 1px solid #cfe7ff; margin-top: 8px;"
+        >
+
+        <div style="margin-top: 20px;">
+          <button id="donate-now" class="details-button">Donate Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

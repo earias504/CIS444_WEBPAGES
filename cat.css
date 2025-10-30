@@ -1,0 +1,191 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(to bottom right, #f2f9ff, #cfe7ff);
+    background-attachment: fixed;
+    color: #1a1a1a;
+}
+
+a.tile {
+  display: inline-block;
+  background-color: #5ca0d3;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1em;
+  transition: all 0.25s ease;
+}
+
+a.tile:hover {
+  opacity: 0.85;
+}
+
+
+/* App Title Style */
+.app-title {
+  font-family: "Poppins", Arial, sans-serif;
+  color: #1e3a5f;
+  font-size: 2.8em;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 30px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .app-title {
+    font-size: 2.2em;
+  }
+}
+
+/* Header Layout */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.2em;
+    color: #1e3a5f;
+}
+hr{
+    color: blue;
+  border-top: 1px solid;
+}
+
+/* Top Right Nav Buttons */
+.button-row {
+    display: flex;
+    gap: 15px;
+}
+
+/* Profile Section */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin-bottom: 40px;
+}
+
+.userImage img {
+    width: 120px;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(173, 216, 230, 0.2);
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+/* Buttons / Tiles */
+button.tile {
+    border: none;
+    border-radius: 25px;
+    padding: 14px 30px;
+    font-weight: 600;
+    font-size: 1em;
+    background: rgba(173, 216, 230, 0.4);
+    color: #1e3a5f;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+button.tile:hover {
+    background: rgba(173, 216, 230, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Buttons Layout --- */
+
+/* Top 3 buttons */
+.main-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Bottom 2 buttons centered */
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 25px;
+}
+
+/* Link styling for clickable buttons */
+.link-button {
+    text-decoration: none;
+}
+
+.details-button {
+    border: none;
+    border-radius: 25px;
+    padding: 14px 30px;
+    font-weight: 600;
+    font-size: 1em;
+    background: rgba(173, 216, 230, 0.4);
+    color: #1e3a5f;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.details-button:hover {
+  background-color: #3bb8df; /* darker pink on hover */
+}
+
+.cat-info {
+  display: flex;
+  flex-direction: column; /* stack items vertically */
+  align-items: flex-start; /* default: left */
+}
+
+.cat-info .details-button {
+  align-self: flex-end; /* move button to the right */
+}
+/* --- Donation Buttons --- */
+button.donation-button {
+    border: none;
+    border-radius: 25px;
+    padding: 16px 36px;
+    font-weight: 600;
+    font-size: 1.1em;
+    background: #5ca0d3; /* a nice blue for donations */
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button.donation-button:hover {
+    background: #4191c0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}

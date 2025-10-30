@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost & Found</title>
+  <link rel="stylesheet" href="cat.css">
+</head>
+
+<body>
+  <header>
+    <h1>Report Lost Cat</h1>
+    <button class="tile" onclick="window.location.href='lost.html'">LIST OF LOST CAT</button>
+    <button class="tile" onclick="window.location.href='homePage.html'">HOMEPAGE</button>
+  </header>
+
+  <div class="container">
+    <h2>Report a Lost Cat</h2>
+    <form id="lostForm">
+      <label for="petType">Pet Type:</label>
+      <input type="text" id="petType" name="petType" required><br><br>
+
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required><br><br>
+
+      <label for="contactInfo">Contact Information:</label>
+      <input type="text" id="contactInfo" name="contactInfo" required><br><br>
+
+      <label for="petPhoto">Photo (optional):</label>
+      <input id="petPhoto" type="file" accept="image/*"><br><br>
+
+      <img id="photoPreview" src="#" alt="Pet preview" style="max-width:200px; display:none;"><br><br>
+
+      <button id="submitform" type="submit" class="tile">Submit Report</button>
+    </form>
+  </div>
+
+  <script src="lostForm.js"></script>
+</body>
+</html>

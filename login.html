@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script src="login.js"></script>
+  <link rel="stylesheet" href="cat.css" >
+  <style>
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      gap: 20px;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(8px);
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 320px;
+    }
+
+    .login-box input {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #cfe7ff;
+      font-size: 1em;
+      outline: none;
+    }
+
+    .login-box input:focus {
+      border-color: #5ca0d3;
+      box-shadow: 0 0 5px rgba(92, 160, 211, 0.5);
+    }
+
+    .switch-text {
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    .switch-text a {
+      color: #1e3a5f;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .switch-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+    <h1 class="app-title">Pawfect Central</h1>
+
+  
+
+  <div class="login-container">
+    <div class="login-box">
+      <input type="text" placeholder="Username or Email" >
+      <input type="password" placeholder="Password" >
+      <button class="tile">Log In</button>
+      <p class="switch-text">
+        Don’t have an account? <a href="signup.html">Sign up</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

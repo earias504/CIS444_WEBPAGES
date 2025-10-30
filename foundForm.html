@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Found Cat</title>
+  <link rel="stylesheet" href="cat.css">
+</head>
+<body>
+  <header>
+    <h1>Report a Found Cat</h1>
+    <button class="tile" onclick="location.href='found.html'">FOUND LIST</button>
+    <button class="tile" onclick="location.href='homePage.html'">HOME PAGE</button>
+  </header>
+
+  <div class="container">
+    <form id="foundForm">
+      <label for="catDesc">Description:</label>
+      <textarea id="catDesc" rows="4" required></textarea><br><br>
+
+      <label for="foundLoc">Found at (location):</label>
+      <input id="foundLoc" type="text" required><br><br>
+
+      <label for="finderContact">Your contact:</label>
+      <input id="finderContact" type="text" required><br><br>
+
+      <label for="foundPhoto">Photo (optional):</label>
+      <input id="foundPhoto" type="file" accept="image/*" capture="environment"><br><br>
+
+      <img src=".img" id="photoPreview" alt="Cat preview" style="max-width:220px; display:none;"><br><br>
+
+      <button type="submit" class="tile">Submit</button>
+    </form>
+  </div>
+
+  <script src="foundForm.js"></script>
+</body>
+</html>

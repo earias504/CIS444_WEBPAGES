@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="cat.css">
+  <script defer src="signup.js"></script>
+  <style>
+    .signup-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 90vh;
+      gap: 20px;
+    }
+
+    .signup-box {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(8px);
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 350px;
+    }
+
+    .signup-box input, 
+    .signup-box select {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #cfe7ff;
+      font-size: 1em;
+      outline: none;
+    }
+
+    .signup-box input:focus,
+    .signup-box select:focus {
+      border-color: #5ca0d3;
+      box-shadow: 0 0 5px rgba(92, 160, 211, 0.5);
+    }
+
+    .switch-text {
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    .switch-text a {
+      color: #1e3a5f;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .switch-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+    <h1 class="app-title">Pawfect Central</h1>
+
+
+
+  <div class="signup-container">
+    <div class="signup-box">
+      <input type="text" placeholder="Full Name" id="fullName" >
+      <input type="text" placeholder="Username" id="username" >
+      <input type="email" placeholder="Email" id="email" >
+      <input type="password" placeholder="Password" id="password" >
+      <input type="password" placeholder="Confirm Password" id="confirmPassword" >
+
+      <!-- NEW Role Selector -->
+      <label for="role"><strong>I am a:</strong></label>
+      <select id="role">
+        <option value="" disabled selected>Select one</option>
+        <option value="owner">Pet Owner</option>
+        <option value="rescuer">Pet Rescuer</option>
+      </select>
+
+      <button class="tile" id="signupBtn">Create Account</button>
+      <p class="switch-text">
+        Already have an account? <a href="login.html">Log in</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
