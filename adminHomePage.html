@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="cat.css">
+</head>
+
+<body>
+  <h1 class="app-title">Pawfect Central - Admin</h1>
+
+  <header>
+    <h1>Admin Homepage</h1>
+    <div class="button-row">
+      <button class="tile" onclick="location.href='login.html'">LOG OUT</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="profile-section">
+      <div class="userImage">
+        <img src="" alt="AdminAvatar">
+      </div>
+      <div class="user-info">
+        <p class="user-name"><strong>Admin Name:</strong> [Admin]</p>
+      </div>
+    </div>
+
+    <h3>What do you want to manage today?</h3>
+
+    <div class="main-buttons">
+      <button class="tile" onclick="location.href='adoptions.html'">Manage Adoptions</button>
+      <button class="tile" onclick="location.href='resources.html'">Manage Lost & Found</button>
+      <button class="tile" onclick="location.href='forum.html'">Moderate Forums</button>
+    </div>
+
+    <div class="bottom-buttons">
+      <button class="tile" onclick="location.href='donations.html'">View Donations</button>
+      <button class="tile" onclick="location.href='userProfile.html'">View User Profiles</button>
+    </div>
+  </div>
+
+  <script>
+    // Optional: Add admin interactivity later
+    console.log("Admin homepage loaded");
+  </script>
+</body>
+</html>
