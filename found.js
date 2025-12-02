@@ -3,7 +3,7 @@ function renderFound() {
       const list = document.getElementById("foundList");
 
       if (!found.length) {
-        list.innerHTML = "<p>No found cats reported yet 🐾</p>";
+        list.innerHTML = "<p>No found cats reported yet</p>";
         return;
       }
 

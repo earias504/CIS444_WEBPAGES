@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,12 +80,14 @@
 
 <body>
   <header>
-    <h1>User Profile</h1>
+    <div class="header-content">
+      <img src="images/catpic_left.png" alt="Cat Left" class="header-cat">
+      <h1>User Profile</h1>
+      <img src="images/catpic_right.png" alt="Cat Right" class="header-cat">
+    </div>
     <div class="button-row">
-   <div class="button-row">
-    <button class="tile" onclick="location.href='homePage.html'">HOME</button>
-  </div>
-  </div>
+      <button class="tile" onclick="location.href='homePage.html'">HOME</button>
+    </div>
   </header>
 
   <div class="profile-container">
@@ -106,8 +109,8 @@
       </div>
 
       <div class="profile-field">
-        <label for="petName">Pet Name:</label>
-        <input type="text" id="petName" value="Whiskers" disabled>
+        <label for="bio">Bio:</label>
+        <input type="text" id="bio" value="I love cats and coffee!" disabled>
       </div>
 
       <div class="button-row">
@@ -117,4 +120,5 @@
     </div>
   </div>
 </body>
+
 </html>

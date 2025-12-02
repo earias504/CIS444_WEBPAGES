@@ -1,23 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" >
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resources | Cats</title>
-  <link rel="stylesheet" href="cat.css" >
+  <link rel="stylesheet" href="cat.css">
+  <style>
+    body {
+      background:
+        linear-gradient(rgba(255, 234, 246, 0.8), rgba(255, 234, 246, 0.8)),
+        url("images/catprint.jpg");
+      background-repeat: repeat;
+      background-size: auto;
+      font-family: 'Nunito', sans-serif;
+      color: #6b4f4f;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 15px 0;
+      background: #ffb6d9;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.25);
+      border-bottom: 4px solid #ff8fc7;
+      margin-bottom: 20px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .header-content h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2em;
+      color: #ffffff;
+      text-shadow: 2px 2px #ff7cbc;
+      margin: 0;
+    }
+
+    .header-cat {
+      width: 80px;
+      height: auto;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .tile {
+      background: #ffd8ec;
+      color: #775c6b;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tile:hover {
+      background: #ffbde2;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.18);
+    }
+
+    main.container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    section.container {
+      background: #ffd8ec;
+      padding: 25px 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+      width: 100%;
+      text-align: left;
+    }
+
+    section.container h2 {
+      font-family: 'Pacifico', cursive;
+      color: #775c6b;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px #ffe1f1;
+    }
+
+    section.container h3 {
+      font-family: 'Pacifico', cursive;
+      color: #6b4f4f;
+      font-size: 1.3em;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      text-shadow: 1px 1px #ffe1f1;
+    }
+
+    section.container ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    section.container li {
+      background: #fff0fa;
+      padding: 8px 12px;
+      border-radius: 15px;
+      margin: 5px 0;
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.15);
+    }
+
+    section.container li a {
+      color: #5c3d5c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section.container li a:hover {
+      color: #ff7cbc;
+      text-decoration: underline;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    nav a.tile {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    @media screen and (max-width: 600px) {
+      .header-content h1 {
+        font-size: 1.6em;
+      }
+
+      .header-cat {
+        width: 60px;
+      }
+
+      .tile {
+        font-size: 16px;
+        padding: 8px 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
-    <h1>Resources</h1>
-    <button class="tile" onclick="location.href='homePage.html'">HOME PAGE</button>
-    <button class="tile" onclick="location.href='lost.html'">LIST OF LOST CAT</button>
-    <button class="tile" onclick="location.href='found.html'">LIST OF FOUND CAT</button>
-    <button class="tile" onclick="location.href='foundForm.html'">REPORT FOUND</button>
+    <div class="header-content">
+      <img src="images/catpic_left.png" alt="Cat Left" class="header-cat">
+      <h1>Resources</h1>
+      <img src="images/catpic_right.png" alt="Cat Right" class="header-cat">
+    </div>
+    <div class="button-row">
+      <button class="tile" onclick="location.href='homePage.html'">HOME PAGE</button>
+      <button class="tile" onclick="location.href='lost.html'">LIST OF LOST CAT</button>
+      <button class="tile" onclick="location.href='found.html'">LIST OF FOUND CAT</button>
+      <button class="tile" onclick="location.href='foundForm.html'">REPORT FOUND</button>
+    </div>
   </header>
 
   <main class="container" id="resources">
-    <!-- Quick Nav -->
-    <nav aria-label="Resources quick links" style="margin-bottom:1rem;">
+    <nav aria-label="Resources quick links">
       <a class="tile" href="#emergency">Emergency</a>
       <a class="tile" href="#lost-found-tips">Lost & Found Tips</a>
       <a class="tile" href="#links">Helpful Links</a>
@@ -26,67 +190,66 @@
       <a class="tile" href="#adopt">Volunteer</a>
     </nav>
 
-    <!-- 1. Emergency Contacts -->
     <section id="emergency" class="container">
       <h2>Emergency Contacts</h2>
       <ul>
         <li><strong>Animal Control:</strong> <a href="tel:7605551000">(760) 555-1000</a></li>
-        <li><strong>Local Shelter / Humane Society:</strong> 
+        <li><strong>Local Shelter / Humane Society:</strong>
           <a href="#" target="_blank" rel="noopener">Find your local shelter</a>
-          <!-- Replace # with your local shelter URL -->
         </li>
         <li><strong>24-Hour Vet / Pet ER:</strong> <a href="tel:7605552470">(760) 555-2470</a></li>
         <li><strong>Poison Helpline:</strong> <a href="tel:8005551212">1-800-555-1212</a></li>
-        <li><strong>Microchip Lookup:</strong> 
+        <li><strong>Microchip Lookup:</strong>
           <a href="#" target="_blank" rel="noopener">Pet Microchip Lookup</a>
-          <!-- Replace with PetMicrochipLookup.org or local registry -->
         </li>
         <li><strong>Email us:</strong> <a href="mailto:rescue@example.com">rescue@example.com</a></li>
       </ul>
     </section>
 
-    <!-- 2. Lost & Found Tips -->
-    <section id="lost-found-tips" class="container">
-      <h2>Tips for Lost & Found Cats</h2>
+<section id="lost-found-tips" class="container">
+  <h2>Tips for Lost & Found Cats</h2>
 
-      <h3>If your cat is lost</h3>
-      <ul>
-        <li>Search nearby at dawn/dusk; check hiding spots (garages, sheds, under decks).</li>
-        <li>Post on neighborhood apps/groups (Nextdoor, local Facebook groups).</li>
-        <li>Notify shelters, Animal Control, and nearby vets (give a recent photo).</li>
-        <li>Leave food, water, and a familiar scent (blanket/used litter) near home.</li>
-        <li>Update our <a href="lost.html">Lost Cats list</a> with details and contact info.</li>
-      </ul>
+  <h3
+    style="font-family: 'Pacifico', cursive; color: #775c6b; text-shadow: 1px 1px #ffe1f1; margin-top: 15px; margin-bottom: 5px;">
+    If your cat is lost
+  </h3>
+  <ul>
+    <li>Search nearby at dawn/dusk; check hiding spots (garages, sheds, under decks).</li>
+    <li>Post on neighborhood apps/groups (Nextdoor, local Facebook groups).</li>
+    <li>Notify shelters, Animal Control, and nearby vets (give a recent photo).</li>
+    <li>Leave food, water, and a familiar scent (blanket/used litter) near home.</li>
+    <li>Update our <a href="lost.html">Lost Cats list</a> with details and contact info.</li>
+  </ul>
 
-      <h3>If you found a cat</h3>
-      <ul>
-        <li>Check for ID tag; ask neighbors. Many vets/shelters scan microchips for free.</li>
-        <li>Take a clear photo and post flyers + neighborhood apps.</li>
-        <li>Add the cat to our <a href="found.html">Found Cats list</a> or 
-          <a href="found-report.html">report it here</a>.
-        </li>
-        <li>Keep the cat safe and separated from your pets until identified.</li>
-      </ul>
-    </section>
+  <h3
+    style="font-family: 'Pacifico', cursive; color: #775c6b; text-shadow: 1px 1px #ffe1f1; margin-top: 15px; margin-bottom: 5px;">
+    If you found a cat
+  </h3>
+  <ul>
+    <li>Check for ID tag; ask neighbors. Many vets/shelters scan microchips for free.</li>
+    <li>Take a clear photo and post flyers + neighborhood apps.</li>
+    <li>Add the cat to our <a href="found.html">Found Cats list</a> or
+      <a href="found-report.html">report it here</a>.
+    </li>
+    <li>Keep the cat safe and separated from your pets until identified.</li>
+  </ul>
+</section>
 
-    <!-- 3. Helpful Links -->
+
     <section id="links" class="container">
       <h2>Helpful Online Resources</h2>
       <ul>
         <li><a href="#" target="_blank" rel="noopener">Humane Society: What to do if you lose your pet</a></li>
         <li><a href="#" target="_blank" rel="noopener">ASPCA: Pet Care & Safety</a></li>
         <li><a href="#" target="_blank" rel="noopener">Petfinder: Lost & Found</a></li>
-        <li><a href="#" target="_blank" rel="noopener">Local Lost/Found Pets Group</a> <!-- replace with your area group --></li>
+        <li><a href="#" target="_blank" rel="noopener">Local Lost/Found Pets Group</a></li>
       </ul>
     </section>
 
-    <!-- 4. Microchipping -->
     <section id="microchip" class="container">
       <h2>Microchipping & ID</h2>
-      <p>
-        Microchips greatly increase the chance of a reunion. Ask a vet or shelter to scan for one.
-        Make sure your microchip is <em>registered</em> and your contact info is up-to-date.
-      </p>
+      <p>Microchips greatly increase the chance of a reunion. Ask a vet or shelter to scan for one. Make sure your
+        microchip is <em>registered</em> and your contact info is up-to-date.</p>
       <ul>
         <li>Get your cat microchipped at a vet/shelter (often low-cost events are available).</li>
         <li>Register and keep your phone/email current with the microchip registry.</li>
@@ -94,7 +257,6 @@
       </ul>
     </section>
 
-    <!-- 5. Safety -->
     <section id="safety" class="container">
       <h2>Preventive Care & Safety</h2>
       <ul>
@@ -105,7 +267,6 @@
       </ul>
     </section>
 
-    <!-- 6. Adoption & Volunteer -->
     <section id="adopt" class="container">
       <h2>Adoption & Volunteering</h2>
       <ul>
@@ -116,6 +277,6 @@
     </section>
   </main>
 
-  
 </body>
+
 </html>
