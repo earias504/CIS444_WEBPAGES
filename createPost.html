@@ -58,23 +58,25 @@
         return;
       }
 
-      const posts = JSON.parse(localStorage.getItem("forumPosts")) || [];
-      const newPostId = Date.now(); // temp php
+      const stored = JSON.parse(localStorage.getItem("forumPosts") || "[]");
+      const posts = Array.isArray(stored) ? stored : [];
+      const newPostId = Date.now();
 
       const newPost = {
         post_id: newPostId,
-        user_id: 0, // placeholder pph
+        user_id: 0,
         title: title,
-        body: body,          
-        category: category,  
-        created: new Date().toLocaleString() 
+        body: body,
+        category: category,
+        created: new Date().toLocaleString()
       };
 
       posts.push(newPost);
       localStorage.setItem("forumPosts", JSON.stringify(posts));
 
       localStorage.setItem("currentCategory", category);
-      localStorage.setItem("currentTopicLabel", category);
+      const existingLabel = localStorage.getItem("currentTopicLabel");
+      localStorage.setItem("currentTopicLabel", existingLabel || category);
 
       window.location.href = "forumTopic.html";
     });
