@@ -1,7 +1,7 @@
 // Elements
 const editBtn = document.getElementById("editBtn");
 const saveBtn = document.getElementById("saveBtn");
-const inputs = document.querySelectorAll(".profile-field input");
+const inputs = document.querySelectorAll(".profile-field input, .profile-field textarea");
 const profilePic = document.getElementById("profilePic");
 const changePicBtn = document.getElementById("changePicBtn");
 const profilePicInput = document.getElementById("profilePicInput");
