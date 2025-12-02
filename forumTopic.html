@@ -20,13 +20,17 @@
 
   <script>
     const postList = document.getElementById("postList");
-    const category = localStorage.getItem("currentCategory") || "Health";
-    const titleLabel = localStorage.getItem("currentTopicLabel") || category;
+    const rawCategory = localStorage.getItem("currentCategory") || "Health";
+    const category = (rawCategory || "").trim().toLowerCase();
+    const titleLabel = localStorage.getItem("currentTopicLabel") || rawCategory;
     document.getElementById("topicTitle").textContent = titleLabel;
 
     function loadPosts() {
-      const allPosts = JSON.parse(localStorage.getItem("forumPosts")) || [];
-      return allPosts.filter(post => post.category === category);
+      const stored = JSON.parse(localStorage.getItem("forumPosts") || "[]");
+      const allPosts = Array.isArray(stored) ? stored : [];
+      return allPosts.filter(post =>
+        (post.category || "").trim().toLowerCase() === category
+      );
     }
 
     function renderPosts() {
@@ -54,7 +58,7 @@
       viewBtns.forEach(btn => {
         btn.addEventListener("click", () => {
           localStorage.setItem("currentPostId", btn.getAttribute("data-post-id"));
-          window.location.href = "forum_comment.html";  <!-- UPDATED HERE -->
+          window.location.href = "forum_comment.html";
         });
       });
     }
