@@ -58,19 +58,23 @@
   </style>
 </head>
 
-<body>
-    <h1 class="app-title">Pawfect Central</h1>
 
-  
+<body>
+  <h1 class="app-title">Pawfect Central</h1>
 
   <div class="login-container">
     <div class="login-box">
-      <input type="text" placeholder="Username or Email" >
-      <input type="password" placeholder="Password" >
-      <button class="tile">Log In</button>
-      <p class="switch-text">
-        Don’t have an account? <a href="signup.html">Sign up</a>
-      </p>
+      <form action="login.php" method="POST">
+
+        <input type="text" placeholder="Username or Email" name="username" required>
+        <input type="password" placeholder="Password" name="password" required>
+
+        <button type="submit" class="tile">Log In</button>
+
+        <p class="switch-text">
+          Don’t have an account? <a href="signup.html">Sign up</a>
+        </p>
+      </form>
     </div>
   </div>
 </body>
