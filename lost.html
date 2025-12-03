@@ -4,25 +4,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost Cats</title>
+    <title>Found Cats</title>
     <link rel="stylesheet" href="cat.css">
+    <style>
+        body {
+            background:
+                linear-gradient(rgba(255, 234, 246, 0.8), rgba(255, 234, 246, 0.8)),
+                url("images/catprint.jpg");
+            background-repeat: repeat;
+            background-size: auto;
+            font-family: 'Nunito', sans-serif;
+            color: #6b4f4f;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 15px 0;
+            background: #ffb6d9;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.25);
+            border-bottom: 4px solid #ff8fc7;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ffffff;
+            margin: 0;
+            font-size: 2em;
+            text-shadow: 2px 2px #ff7cbc;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header-cat {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .button-row {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tile {
+            background: #ffd8ec;
+            color: #775c6b;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+            font-weight: 700;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .tile:hover {
+            background: #ffbde2;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.18);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .found-cat {
+            background: #ffd8ec;
+            border-radius: 20px;
+            padding: 15px 20px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .found-cat:hover {
+            background: #ffbde2;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.18);
+        }
+
+        .found-cat p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .no-found {
+            font-size: 1.2em;
+            color: #775c6b;
+            font-style: italic;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
-    <script src="lost.js"></script>
 
     <header>
+        <div class="header-content">
+            <img src="images/catpic_left.png" alt="Cat Left" class="header-cat">
+            <h1>Found Cats</h1>
+            <img src="images/catpic_right.png" alt="Cat Right" class="header-cat">
+        </div>
 
-        <h1>Lost Cats</h1>
-        <button class="tile" onclick="window.location.href='lostForm.html'">REPORT LOST CAT</button>
-        <button class="tile" onclick="window.location.href='resource.html'">BACK</button>
-
+        <div class="button-row">
+            <button class="tile" onclick="window.location.href='foundForm.html'">REPORT FOUND</button>
+            <button class="tile" onclick="window.location.href='resource.html'">BACK</button>
+        </div>
     </header>
-    <div class="container" id="lostCatsList">
-        <!-- Lost cats will be listed here -->
 
-
+    <div class="container" id="foundList">
+        <p class="no-found">No found pets reported yet.</p>
     </div>
+
+    <script src="found.js"></script>
 </body>
 
 </html>

@@ -13,26 +13,30 @@
     </div>
   </header>
 
+  <h3 style="text-align:center;">Choose a Discussion Topic</h3>
 
-
-<h3 style="text-align: center;">Choose a Discussion Topic</h3>
-
-    <div class="main-buttons">
-    <a href="forumTopic.html" class="tile">General Chat</a>
-    <a href="forumTopic.html" class="tile">Cat Health & Care</a>
+  <div class="main-buttons">
+    <button class="tile topic-btn" data-category="Health">Cat Health &amp; Care</button>
+    <button class="tile topic-btn" data-category="Lost">Lost Pets</button>
   </div>
 
   <div class="bottom-buttons">
-    <a href="forumTopic.html" class="tile">Adoption Tips</a>
-    <a href="forumTopic.html" class="tile">Funny Cats / Memes</a>
+    <button class="tile topic-btn" data-category="Found">Found Pets</button>
+    <button class="tile topic-btn" data-category="Just for Fun">Funny Cats / Memes</button>
   </div>
-  
+
   <script>
-    // Store selected topic when clicked
-    const buttons = document.querySelectorAll(".tile-link button");
-    buttons.forEach(btn => {
+    const topicButtons = document.querySelectorAll(".topic-btn");
+
+    topicButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        localStorage.setItem("currentTopic", btn.textContent.trim());
+        const category = btn.getAttribute("data-category");
+        const label = btn.textContent.trim();
+
+        localStorage.setItem("currentCategory", category);
+        localStorage.setItem("currentTopicLabel", label);
+
+        window.location.href = "forumTopic.html";
       });
     });
   </script>

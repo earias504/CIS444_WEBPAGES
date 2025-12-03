@@ -1,107 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Adoptions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoptions | Pawfect Central</title>
   <link rel="stylesheet" href="cat.css">
-  <style>
-    body {
-      font-family: "Poppins", Arial, sans-serif;
-      background: linear-gradient(to bottom right, #f2f9ff, #cfe7ff);
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-    }
-
-    main.container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: 60px;
-      text-align: center;
-    }
-
-    h2 {
-      color: #1e3a5f;
-      margin-bottom: 40px;
-    }
-
-    .adoption-options {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-
-    .adoption-box {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      width: 300px;
-      height: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .adoption-box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .adoption-box h3 {
-      color: #1e3a5f;
-      margin-bottom: 10px;
-      font-size: 1.4em;
-    }
-
-    .adoption-box p {
-      color: #1a1a1a;
-      font-size: 1em;
-      padding: 0 20px;
-    }
-
-    @media (max-width: 700px) {
-      .adoption-options {
-        flex-direction: column;
-        gap: 25px;
-      }
-
-      .adoption-box {
-        width: 80%;
-      }
-    }
-  </style>
 </head>
-<body>
-  <header>
-    <h1>Adoptions</h1>
-    <div class="button-row">
-     <a href="homePage.html" class="tile">HOME</a>
 
+<body>
+
+  <!-- APP TITLE -->
+  <h1 class="app-title">Pawfect Central</h1>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <img src="images/catpic_left.png" alt="Cat Left" class="header-cat">
+      <h1>Adoptions</h1>
+      <img src="images/catpic_right.png" alt="Cat Right" class="header-cat">
+    </div>
+
+    <div class="button-row">
+      <a href="homePage.html" class="tile">HOME</a>
     </div>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="container">
-    <h2>Find the Right Form for You!</h2>
+    <h3>Find the Right Form for You!</h3>
 
     <div class="adoption-options">
-      <div class="adoption-box" onclick="window.location.href='interestForm.html'">
-        <h3>🐾 Adoption Interest Form</h3>
+      <div class="adoption-box tile" onclick="window.location.href='interestForm.html'">
+        <h4>Adoption Interest Form</h4>
         <p>Not sure yet? Tell us about your preferences and we’ll help match you with the perfect furry friend!</p>
       </div>
 
-      <div class="adoption-box" onclick="window.location.href='readyToAdopt.html'">
-        <h3>🏠 Ready to Adopt Form</h3>
+      <div class="adoption-box tile" onclick="window.location.href='readyToAdopt.html'">
+        <h4>Ready to Adopt Form</h4>
         <p>Already found your future pet? Fill out this form to start the official adoption process!</p>
       </div>
     </div>
   </main>
+
 </body>
+
 </html>

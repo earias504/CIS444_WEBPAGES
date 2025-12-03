@@ -3,7 +3,7 @@ function renderCats() {
             const listDiv = document.getElementById("lostCatsList");
 
             if (!cats.length) {
-                listDiv.innerHTML = "<p>No lost pets reported yet 🐾</p>";
+                listDiv.innerHTML = "<p>No lost pets reported yet</p>";
                 return;
             }
 
@@ -22,10 +22,9 @@ function renderCats() {
 
         function deleteCat(index) {
             const cats = JSON.parse(localStorage.getItem("cats")) || [];
-            cats.splice(index, 1); // remove 1 cat at this index
+            cats.splice(index, 1); 
             localStorage.setItem("cats", JSON.stringify(cats));
-            renderCats(); // re-render the list
+            renderCats(); 
         }
 
-        // Load instantly when page opens
         window.addEventListener("DOMContentLoaded", renderCats);
