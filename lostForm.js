@@ -12,7 +12,6 @@
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(bitmap, 0, 0, w, h);
 
-                // quality: 0.8 works well for JPEG
                 return canvas.toDataURL('image/jpeg', 0.8);
             }
 
@@ -56,7 +55,6 @@
             });
 
             function fileToDataURL(file) {
-                // (Basic) Convert to DataURL. For better UX, see the compression option below.
                 return new Promise((resolve, reject) => {
                 const reader = new FileReader();
                 reader.onload  = () => resolve(reader.result);

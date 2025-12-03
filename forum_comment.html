@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>View Discussion</title>
   <link rel="stylesheet" href="cat.css">
+  <style>
+    /* Form styling to match other inputs */
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d0e0f0;
+      border-radius: 10px;
+      font-size: 1em;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+      margin-bottom: 15px;
+      resize: vertical;
+    }
+
+    .cat-card {
+      background: #ffd8ec;
+      border-radius: 20px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #d67cae;
+      font-weight: 800;
+      text-shadow: 2px 2px #ffe1f1;
+      margin-bottom: 10px;
+    }
+
+    button.tile {
+      font-size: 18px;
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- MATCHING HEADER -->
   <header>
-    <h1 id="postTitle">Discussion</h1>
+    <div class="header-content">
+      <img src="images/catpic_left.png" alt="Cat Left" class="header-cat">
+      <h1 id="postTitle">Discussion</h1>
+      <img src="images/catpic_right.png" alt="Cat Right" class="header-cat">
+    </div>
+
     <div class="button-row">
       <button class="tile" onclick="location.href='forumTopic.html'">BACK TO TOPIC</button>
     </div>
@@ -25,7 +68,7 @@
     <h2>Leave a Comment</h2>
     <div class="cat-card">
       <form id="commentForm">
-        <textarea id="commentText" rows="4" required style="width:100%;"></textarea><br><br>
+        <textarea id="commentText" rows="4" required></textarea>
         <button type="submit" class="tile">Post Comment</button>
       </form>
     </div>
@@ -88,7 +131,7 @@
       });
     }
 
-    commentForm.addEventListener("submit", function(e) {
+    commentForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
       const text = commentInput.value.trim();
@@ -114,11 +157,12 @@
       renderComments();
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       renderPost();
       renderComments();
     });
   </script>
 
 </body>
+
 </html>

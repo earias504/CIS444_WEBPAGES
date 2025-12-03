@@ -1,13 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Create Forum Post</title>
   <link rel="stylesheet" href="cat.css">
+  <style>
+    /* Form styling to match other input styles */
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d0e0f0;
+      border-radius: 10px;
+      font-size: 1em;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    form label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+      text-align: left;
+      color: #6b4f4f;
+    }
+
+    .cat-card {
+      background: #ffd8ec;
+      border-radius: 20px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+      padding: 30px 25px;
+      max-width: 600px;
+      margin: 30px auto;
+    }
+
+    .cat-card button.tile {
+      width: 100%;
+      font-size: 18px;
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- MATCHING HEADER -->
   <header>
-    <h1>Create a New Post</h1>
+    <div class="header-content">
+      <img src="images/catpic_left.png" alt="Cat Left" class="header-cat">
+      <h1>Create a New Post</h1>
+      <img src="images/catpic_right.png" alt="Cat Right" class="header-cat">
+    </div>
+
     <div class="button-row">
       <button class="tile" onclick="location.href='forumTopic.html'">BACK TO TOPIC</button>
     </div>
@@ -16,21 +66,21 @@
   <main class="container">
     <div class="cat-card">
       <form id="createPostForm">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" required style="width:100%;"><br><br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" required>
 
-        <label for="category">Category:</label><br>
-        <select id="category" style="width:100%;">
+        <label for="category">Category:</label>
+        <select id="category">
           <option value="Health">Health</option>
           <option value="Lost">Lost</option>
           <option value="Found">Found</option>
           <option value="Training">Training</option>
           <option value="Advice">Advice</option>
           <option value="Just for Fun">Just for Fun</option>
-        </select><br><br>
+        </select>
 
-        <label for="body">Post Content:</label><br>
-        <textarea id="body" rows="6" required style="width:100%;"></textarea><br><br>
+        <label for="body">Post Content:</label>
+        <textarea id="body" rows="6" required></textarea>
 
         <button type="submit" class="tile">Post</button>
       </form>
@@ -46,7 +96,7 @@
       categorySelect.value = storedCat;
     }
 
-    form.addEventListener("submit", function(e) {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
 
       const title = document.getElementById("title").value.trim();
@@ -81,5 +131,7 @@
       window.location.href = "forumTopic.html";
     });
   </script>
+
 </body>
+
 </html>

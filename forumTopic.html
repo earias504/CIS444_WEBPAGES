@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Forum Topic</title>
   <link rel="stylesheet" href="cat.css">
 </head>
+
 <body>
+
+  <!-- MATCHING HEADER -->
   <header>
-    <h1 id="topicTitle">Forum Topic</h1>
+    <div class="header-content">
+      <img src="images/catpic_left.png" alt="Cat Left" class="header-cat">
+      <h1 id="topicTitle">Forum Topic</h1>
+      <img src="images/catpic_right.png" alt="Cat Right" class="header-cat">
+    </div>
+
     <div class="button-row">
       <button class="tile" onclick="location.href='forum.html'">BACK TO FORUM</button>
       <button class="tile" onclick="location.href='createPost.html'">CREATE POST</button>
@@ -38,7 +47,8 @@
       postList.innerHTML = "";
 
       if (posts.length === 0) {
-        postList.innerHTML = "<p>No posts yet in this topic. Be the first to share something!</p>";
+        postList.innerHTML =
+          "<p>No posts yet in this topic. Be the first to share something!</p>";
         return;
       }
 
@@ -47,7 +57,7 @@
         div.className = "cat-card";
         div.innerHTML = `
           <h3>${post.title}</h3>
-          <p>${post.body.length > 200 ? post.body.substring(0,200) + "..." : post.body}</p>
+          <p>${post.body.length > 200 ? post.body.substring(0, 200) + "..." : post.body}</p>
           <p><small>Posted: ${post.created}</small></p>
           <button class="tile view-btn" data-post-id="${post.post_id}">View Discussion</button>
         `;
@@ -65,5 +75,7 @@
 
     document.addEventListener("DOMContentLoaded", renderPosts);
   </script>
+
 </body>
+
 </html>

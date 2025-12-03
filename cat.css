@@ -35,7 +35,7 @@ body {
 header {
   background: #ffb6d9;
   padding: 10px 20px;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.25);
+  box-shadow: 0 4px 10px #ff69b440;
   border-bottom: 4px solid #ff8fc7;
 }
 
