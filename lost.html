@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Found Cats</title>
+    <title>Lost Cats</title>
     <link rel="stylesheet" href="cat.css">
     <style>
         body {
@@ -34,19 +34,6 @@
             margin: 0;
             font-size: 2em;
             text-shadow: 2px 2px #ff7cbc;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .header-cat {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
         }
 
         .button-row {
@@ -84,7 +71,7 @@
             font-family: 'Nunito', sans-serif;
         }
 
-        .found-cat {
+        .lost-cat {
             background: #ffd8ec;
             border-radius: 20px;
             padding: 15px 20px;
@@ -95,18 +82,18 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .found-cat:hover {
+        .lost-cat:hover {
             background: #ffbde2;
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.18);
         }
 
-        .found-cat p {
+        .lost-cat p {
             margin: 0;
             font-size: 1em;
         }
 
-        .no-found {
+        .no-lost {
             font-size: 1.2em;
             color: #775c6b;
             font-style: italic;
@@ -117,25 +104,25 @@
 </head>
 
 <body>
-
     <header>
         <div class="header-content">
             <img src="images/catpic_left.png" alt="Cat Left" class="header-cat">
-            <h1>Found Cats</h1>
+            <h1>Lost Cats</h1>
             <img src="images/catpic_right.png" alt="Cat Right" class="header-cat">
         </div>
-
+    
         <div class="button-row">
-            <button class="tile" onclick="window.location.href='foundForm.html'">REPORT FOUND</button>
+            <button class="tile" onclick="window.location.href='lostForm.html'">REPORT LOST CAT</button>
             <button class="tile" onclick="window.location.href='resource.html'">BACK</button>
         </div>
     </header>
 
-    <div class="container" id="foundList">
-        <p class="no-found">No found pets reported yet.</p>
+
+    <div class="container" id="lostCatsList">
+        <p class="no-lost">No lost pets reported yet.</p>
     </div>
 
-    <script src="found.js"></script>
+    <script src="lost.js"></script>
 </body>
 
 </html>

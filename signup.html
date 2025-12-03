@@ -17,8 +17,7 @@
     }
 
     .signup-box {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255);
       padding: 40px 50px;
       border-radius: 20px;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
@@ -72,12 +71,11 @@
       <input type="password" placeholder="Password" id="password" >
       <input type="password" placeholder="Confirm Password" id="confirmPassword" >
 
-      <!-- NEW Role Selector -->
       <label for="role"><strong>I am a:</strong></label>
       <select id="role">
         <option value="" disabled selected>Select one</option>
-        <option value="owner">Pet Owner</option>
-        <option value="rescuer">Pet Rescuer</option>
+        <option value="owner">User</option>
+        <option value="rescuer">Admin</option>
       </select>
 
       <button class="tile" id="signupBtn">Create Account</button>
