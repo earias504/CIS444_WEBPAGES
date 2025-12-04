@@ -23,20 +23,12 @@ if (!isset($_SESSION["user_id"])) {
 $ownerId = (int) $_SESSION["user_id"];
 
 $petName = trim($_POST["pet_name"] ?? "");
-$petAge = trim($_POST["pet_age"] ?? "");
-$petWeight = trim($_POST["pet_weight"] ?? "");
-$petMedical = trim($_POST["pet_medical"] ?? "");
-$petGender = $_POST["pet_gender"] ?? "Unknown";
-
-
-
-// Validate required fields
 if ($petName === "") {
     echo "<p style='color:red;'>Pet name is required. Please go back and try again.</p>";
     exit();
 }
 
-$petName = trim($_POST["pet_name"] ?? "");
+
 $petAge = trim($_POST["pet_age"] ?? "");
 $petWeight = trim($_POST["pet_weight"] ?? "");
 $petMedical = trim($_POST["pet_medical"] ?? "");
@@ -44,6 +36,11 @@ $petGender = $_POST["pet_gender"] ?? "Unknown";
 
 $ageSql = ($petAge === "") ? "NULL" : (int) $petAge;
 $weightSql = ($petWeight === "") ? "NULL" : (float) $petWeight;
+
+// Validate required fields
+
+
+
 
 $photoSql = "NULL"; // default if no image uploaded
 
@@ -67,7 +64,7 @@ if (!empty($_FILES['pet_pic']['name'])) {
             }
         }
 
-        $fileName   = time() . "_" . basename($_FILES['pet_pic']['name']);
+        $fileName = time() . "_" . basename($_FILES['pet_pic']['name']);
         $targetPath = $uploadsDir . $fileName;
 
         // Path to store in DB (relative for <img src>)

@@ -1,7 +1,10 @@
 
 
 function loadPets(){
-    fetch("getPets.php").then((Response) => Response.json()).then((pets) => {
+
+    const sortCheckbox = document.getElementById("sortAscending");
+    const order = sortCheckbox && sortCheckbox.checked ? "asc" : "desc";
+    fetch("getPets.php?order="+order).then((Response) => Response.json()).then((pets) => {
 
         const petsList = document.querySelector(".pets-list");
         petsList.innerHTML = "";
@@ -22,9 +25,9 @@ function loadPets(){
 
             div.innerHTML = `
             <div class="cat-info">
-                <p>${pet.pet_name} </p>
-                <p>${pet.age !== null ? `(${pet.age} yrs)` : ""}</p>
-                <p>${pet.gender !== "Unknown" ? ` - ${pet.gender}` : ""}</p>
+                <p><strong> Name: </strong>${pet.pet_name} </p>
+                <p><strong> Age: </strong>${pet.age !== null ? `(${pet.age} yrs)` : "Unknown"}</p>
+                <p><strong> Gender: </strong>${pet.gender !== "Unknown" ? ` ${pet.gender}` : "Unknown"}</p>
             </div>
             <button class="delete-cat-btn" data-id="${pet.cat_id}">Delete</button>
             
@@ -96,7 +99,7 @@ function loadLogs() {
 
         const deleteBtn = document.createElement("button");
         deleteBtn.className = "delete-btn";
-        deleteBtn.textContent = "✕";
+        deleteBtn.textContent = "âœ•";
         deleteBtn.onclick = () => deleteLog(index);
 
         div.appendChild(textSpan);
@@ -116,5 +119,10 @@ function deleteLog(index) {
 window.addEventListener("DOMContentLoaded", () => {
     loadLogs();
     loadPets();
+
+    const sortCheckbox = document.getElementById("sortAscending");
+    if (sortCheckbox) {
+        sortCheckbox.addEventListener("change", loadPets);
+    }
 });
 

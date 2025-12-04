@@ -11,11 +11,21 @@ if (!isset($_SESSION["user_id"])) {
 
 $userId = (int) $_SESSION["user_id"];
 
+$order = "DESC";
+if (isset($_GET["order"])) {
+    $o = strtolower($_GET["order"]);
+    if ($o === "asc") {
+        $order = "ASC";
+    } elseif ($o === "desc") {
+        $order = "DESC";
+    }
+}
+
 $sql = "
     SELECT cat_id, pet_name, age, weight, gender, photo
     FROM cat_database
     WHERE owner_id = $userId
-    ORDER BY created DESC
+    ORDER BY age $order
 ";
 
 $result = $conn->query($sql);

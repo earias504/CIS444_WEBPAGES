@@ -7,7 +7,6 @@
   </head>
 
   <body>
-    <!-- MATCHING HEADER -->
     <header>
       <div class="header-content">
         <img
@@ -40,24 +39,31 @@
     <script>
       const postList = document.getElementById("postList");
       const rawCategory = localStorage.getItem("currentCategory") || "Health";
-      const category = (rawCategory || "").trim().toLowerCase();
+      const category = (rawCategory || "").trim();
       const titleLabel =
         localStorage.getItem("currentTopicLabel") || rawCategory;
       document.getElementById("topicTitle").textContent = titleLabel;
 
-      function loadPosts() {
-        const stored = JSON.parse(localStorage.getItem("forumPosts") || "[]");
-        const allPosts = Array.isArray(stored) ? stored : [];
-        return allPosts.filter(
-          (post) => (post.category || "").trim().toLowerCase() === category
-        );
+      async function loadPostsFromDB() {
+        postList.innerHTML = "Loading posts...";
+
+        try {
+          const res = await fetch(
+            "get_post.php?category=" + encodeURIComponent(category)
+          );
+          if (!res.ok) throw new Error("Failed to load posts");
+          const posts = await res.json();
+          renderPosts(posts);
+        } catch (err) {
+          console.error(err);
+          postList.innerHTML = "<p>Error loading posts.</p>";
+        }
       }
 
-      function renderPosts() {
-        const posts = loadPosts();
+      function renderPosts(posts) {
         postList.innerHTML = "";
 
-        if (posts.length === 0) {
+        if (!Array.isArray(posts) || posts.length === 0) {
           postList.innerHTML =
             "<p>No posts yet in this topic. Be the first to share something!</p>";
           return;
@@ -66,18 +72,18 @@
         posts.forEach((post) => {
           const div = document.createElement("div");
           div.className = "cat-card";
-          div.innerHTML = `
-          <h3>${post.title}</h3>
-          <p>${
-            post.body.length > 200
+
+          const preview =
+            (post.body || "").length > 200
               ? post.body.substring(0, 200) + "..."
-              : post.body
-          }</p>
-          <p><small>Posted: ${post.created}</small></p>
-          <button class="tile view-btn" data-post-id="${
-            post.post_id
-          }">View Discussion</button>
-        `;
+              : post.body || "";
+
+          div.innerHTML = `
+        <h3>${post.title}</h3>
+        <p>${preview}</p>
+        <p><small>Posted: ${post.created}</small></p>
+        <button class="tile view-btn" data-post-id="${post.post_id}">View Discussion</button>
+      `;
           postList.appendChild(div);
         });
 
@@ -93,7 +99,7 @@
         });
       }
 
-      document.addEventListener("DOMContentLoaded", renderPosts);
+      document.addEventListener("DOMContentLoaded", loadPostsFromDB);
     </script>
   </body>
 </html>
