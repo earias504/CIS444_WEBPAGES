@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Log</title>
+    <link rel="stylesheet" href="../shared/cat.css" />
+
+    <style>
+      body {
+        font-family: "Nunito", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        text-align: center;
+      }
+
+      header {
+        padding: 20px 0;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      .button-row {
+        margin-top: 10px;
+      }
+
+      .tile {
+        background: #ffd8ec;
+        color: #775c6b;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+        font-weight: 700;
+        transition: all 0.2s ease;
+      }
+
+      .tile:hover {
+        background: #ffbde2;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.18);
+      }
+
+      .create-log-container {
+        background: #ffd8ec;
+        padding: 30px 40px;
+        border-radius: 20px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+        width: 350px;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        color: #6b4f4f;
+      }
+
+      .create-log-container h1 {
+        font-size: 1.8em;
+        color: #775c6b;
+        text-shadow: 1px 1px #ffe1f1;
+      }
+
+      label {
+        font-weight: 600;
+        margin-bottom: 5px;
+        display: block;
+        text-align: left;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #d0e0f0;
+        border-radius: 10px;
+        font-size: 1em;
+        box-sizing: border-box;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .submit-btn {
+        background: #ff8fc7;
+        color: white;
+      }
+
+      .submit-btn:hover {
+        opacity: 0.85;
+      }
+
+      .cancel-btn {
+        background: #ffffff;
+        color: #ff8fc7;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+      }
+
+      .cancel-btn:hover {
+        opacity: 0.85;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- MATCHING HEADER -->
+    <header>
+      <div class="header-content">
+        <img
+          src="../images/catpic_left.png"
+          alt="Cat Left"
+          class="header-cat"
+        />
+        <h1>Create Log</h1>
+        <img
+          src="../images/catpic_right.png"
+          alt="Cat Right"
+          class="header-cat"
+        />
+      </div>
+
+      <div class="button-row">
+        <a href="../pets/petDashboard.html" class="tile">BACK TO DASHBOARD</a>
+      </div>
+    </header>
+
+    <div class="create-log-container">
+      <div class="form-group">
+        <label for="activity-name">Activity Name</label>
+        <input
+          type="text"
+          id="activity-name"
+          placeholder="Enter activity name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="activity-time">Time</label>
+        <input type="time" id="activity-time" />
+      </div>
+
+      <div class="form-group">
+        <label for="pet-name">Pet Name</label>
+        <input type="text" id="pet-name" placeholder="Enter pet name" />
+      </div>
+
+      <div class="buttons">
+        <button class="submit-btn" onclick="submitLog()">Submit</button>
+        <button class="cancel-btn" onclick="cancelLog()">Cancel</button>
+      </div>
+    </div>
+
+    <script>
+      function cancelLog() {
+        window.location.href = "../pets/petDashboard.html";
+      }
+
+      function submitLog() {
+        const activityName = document
+          .getElementById("activity-name")
+          .value.trim();
+        const activityTime = document.getElementById("activity-time").value;
+        const petName = document.getElementById("pet-name").value.trim();
+
+        if (!activityName || !activityTime || !petName) {
+          alert("Please fill in all fields!");
+          return;
+        }
+
+        const newLog = `${activityName} - ${petName} - ${activityTime}`;
+        let logs = JSON.parse(localStorage.getItem("petLogs")) || [];
+
+        logs.push(newLog);
+        localStorage.setItem("petLogs", JSON.stringify(logs));
+
+        window.location.href = "../pets/petDashboard.html";
+      }
+    </script>
+  </body>
+</html>

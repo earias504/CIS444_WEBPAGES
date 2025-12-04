@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Forum Topic</title>
+    <link rel="stylesheet" href="../shared/cat.css" />
+  </head>
+
+  <body>
+    <!-- MATCHING HEADER -->
+    <header>
+      <div class="header-content">
+        <img
+          src="../images/catpic_left.png"
+          alt="Cat Left"
+          class="header-cat"
+        />
+        <h1 id="topicTitle">Forum Topic</h1>
+        <img
+          src="../images/catpic_right.png"
+          alt="Cat Right"
+          class="header-cat"
+        />
+      </div>
+
+      <div class="button-row">
+        <button class="tile" onclick="location.href='forum.html'">
+          BACK TO FORUM
+        </button>
+        <button class="tile" onclick="location.href='createPost.html'">
+          CREATE POST
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <div id="postList"></div>
+    </main>
+
+    <script>
+      const postList = document.getElementById("postList");
+      const rawCategory = localStorage.getItem("currentCategory") || "Health";
+      const category = (rawCategory || "").trim().toLowerCase();
+      const titleLabel =
+        localStorage.getItem("currentTopicLabel") || rawCategory;
+      document.getElementById("topicTitle").textContent = titleLabel;
+
+      function loadPosts() {
+        const stored = JSON.parse(localStorage.getItem("forumPosts") || "[]");
+        const allPosts = Array.isArray(stored) ? stored : [];
+        return allPosts.filter(
+          (post) => (post.category || "").trim().toLowerCase() === category
+        );
+      }
+
+      function renderPosts() {
+        const posts = loadPosts();
+        postList.innerHTML = "";
+
+        if (posts.length === 0) {
+          postList.innerHTML =
+            "<p>No posts yet in this topic. Be the first to share something!</p>";
+          return;
+        }
+
+        posts.forEach((post) => {
+          const div = document.createElement("div");
+          div.className = "cat-card";
+          div.innerHTML = `
+          <h3>${post.title}</h3>
+          <p>${
+            post.body.length > 200
+              ? post.body.substring(0, 200) + "..."
+              : post.body
+          }</p>
+          <p><small>Posted: ${post.created}</small></p>
+          <button class="tile view-btn" data-post-id="${
+            post.post_id
+          }">View Discussion</button>
+        `;
+          postList.appendChild(div);
+        });
+
+        const viewBtns = document.querySelectorAll(".view-btn");
+        viewBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            localStorage.setItem(
+              "currentPostId",
+              btn.getAttribute("data-post-id")
+            );
+            window.location.href = "forum_comment.html";
+          });
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", renderPosts);
+    </script>
+  </body>
+</html>

@@ -1,17 +1,18 @@
 <?php
 session_start();
 if (!isset($_SESSION["user_id"])) {
-    header("Location: login.html");
-    exit();
+  header("Location: shared/login.html");
+  exit();
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Home Page</title>
-  <link rel="stylesheet" href="cat.css">
+  <link rel="stylesheet" href="shared/cat.css">
 </head>
 
 <body>
@@ -53,4 +54,5 @@ if (!isset($_SESSION["user_id"])) {
     </div>
   </div>
 </body>
+
 </html>

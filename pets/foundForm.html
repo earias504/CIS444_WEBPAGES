@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Found Cat</title>
+    <link rel="stylesheet" href="../shared/cat.css" />
+    <style>
+      body {
+        background: linear-gradient(
+            rgba(255, 234, 246, 0.8),
+            rgba(255, 234, 246, 0.8)
+          ),
+          url("images/catprint.jpg");
+        background-repeat: repeat;
+        background-size: auto;
+        font-family: "Nunito", sans-serif;
+        color: #6b4f4f;
+        text-align: center;
+        overflow-x: hidden;
+      }
+
+      header {
+        text-align: center;
+        padding: 15px 0;
+        background: #ffb6d9;
+        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.25);
+        border-bottom: 4px solid #ff8fc7;
+      }
+
+      header h1 {
+        font-family: "Pacifico", cursive;
+        color: #ffffff;
+        margin: 0;
+        font-size: 2em;
+        text-shadow: 2px 2px #ff7cbc;
+      }
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .header-cat {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+      }
+
+      .button-row {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .tile {
+        background: #ffd8ec;
+        color: #775c6b;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+        font-weight: 700;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      .tile:hover {
+        background: #ffbde2;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.18);
+        color: #775c6b;
+      }
+
+      .form-container {
+        background: #ffd8ec;
+        padding: 30px 40px;
+        border-radius: 20px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+        width: 400px;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        font-family: "Nunito", sans-serif;
+        color: #6b4f4f;
+        align-items: center;
+      }
+
+      .form-container h2 {
+        font-family: "Pacifico", cursive;
+        font-size: 1.8em;
+        color: #775c6b;
+        text-shadow: 1px 1px #ffe1f1;
+      }
+
+      label {
+        font-weight: 600;
+        margin-bottom: 5px;
+        display: block;
+        text-align: left;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #d0e0f0;
+        border-radius: 10px;
+        font-size: 1em;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .submit-btn,
+      .cancel-btn {
+        background: #ffd8ec;
+        color: #775c6b;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 25px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+
+      .submit-btn:hover,
+      .cancel-btn:hover {
+        background: #ffbde2;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.18);
+        color: #775c6b;
+      }
+
+      #photoPreview {
+        max-width: 200px;
+        border-radius: 15px;
+        display: none;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <img
+          src="../images/catpic_left.png"
+          alt="Cat Left"
+          class="header-cat"
+        />
+        <h1>Report Found Cat</h1>
+        <img
+          src="../images/catpic_right.png"
+          alt="Cat Right"
+          class="header-cat"
+        />
+      </div>
+      <div class="button-row">
+        <a href="found.html" class="tile">FOUND LIST</a>
+        <a href="../homePage.html" class="tile">HOME PAGE</a>
+      </div>
+    </header>
+
+    <div class="form-container">
+      <h2>Report a Found Cat</h2>
+      <form id="foundForm">
+        <label for="catDesc">Description:</label>
+        <textarea id="catDesc" rows="4" required></textarea>
+
+        <label for="foundLoc">Found at (location):</label>
+        <input id="foundLoc" type="text" required />
+
+        <label for="finderContact">Your contact:</label>
+        <input id="finderContact" type="text" required />
+
+        <label for="foundPhoto">Photo (optional):</label>
+        <input
+          id="foundPhoto"
+          type="file"
+          accept="image/*"
+          capture="environment"
+        />
+        <img id="photoPreview" src="#" alt="Cat preview" />
+
+        <div class="buttons">
+          <button type="submit" class="submit-btn">Submit Report</button>
+          <button
+            type="button"
+            class="cancel-btn"
+            onclick="window.location.href='found.html'"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="foundForm.js"></script>
+  </body>
+</html>

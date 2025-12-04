@@ -3,53 +3,50 @@
 <!-- Redirect HTML wrapper (keeps old links working) -->
 <meta http-equiv="refresh" content="0; URL='home.php'" />
 
-
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Home Page</title>
-  <link rel="stylesheet" href="cat.css">
-</head>
-<body>
-  <h1 class="app-title">Pawfect Central</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="shared/cat.css" />
+  </head>
+  <body>
+    <h1 class="app-title">Pawfect Central</h1>
 
-  <header>
-    <div class="header-content">
-      <img src="images/catpic_left.png" alt="Cat Left" class="header-cat">
-      <h1>Home Page</h1>
-      <img src="images/catpic_right.png" alt="Cat Right" class="header-cat">
-    </div>
-  
-    <div class="button-row">
-      <a href="userProfile.html" class="tile">USER PROFILE</a>
-      <a href="login.html" class="tile">SIGN OUT</a>
-    </div>
-  </header>
-
-
-  <div class="container">
-    <div class="profile-section">
-      <div class="userImage">
-        <img src="#" alt="UserFace">
+    <header>
+      <div class="header-content">
+        <img src="images/catpic_left.png" alt="Cat Left" class="header-cat" />
+        <h1>Home Page</h1>
+        <img src="images/catpic_right.png" alt="Cat Right" class="header-cat" />
       </div>
-      <div class="user-info">
-        <p class="user-name"><strong>Name:</strong> [User Name]</p>
+
+      <div class="button-row">
+        <a href="users/userProfile.html" class="tile">USER PROFILE</a>
+        <a href="auth/login.html" class="tile">SIGN OUT</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="profile-section">
+        <div class="userImage">
+          <img src="#" alt="UserFace" />
+        </div>
+        <div class="user-info">
+          <p class="user-name"><strong>Name:</strong> [User Name]</p>
+        </div>
+      </div>
+
+      <h3>What do you want to do?</h3>
+
+      <div class="main-buttons">
+        <a href="donations/donations.html" class="tile">DONATIONS</a>
+        <a href="pets/petDashboard.html" class="tile">PET DASHBOARD</a>
+        <a href="forum/forum.html" class="tile">FORUMS</a>
+      </div>
+
+      <div class="bottom-buttons">
+        <a href="pets/adoptions.html" class="tile">ADOPTIONS</a>
+        <a href="shared/resource.html" class="tile">RESOURCES</a>
       </div>
     </div>
-
-    <h3>What do you want to do?</h3>
-
-    <div class="main-buttons">
-      <a href="donations.html" class="tile">DONATIONS</a>
-      <a href="petDashboard.html" class="tile">PET DASHBOARD</a>
-      <a href="forum.html" class="tile">FORUMS</a>
-    </div>
-
-    <div class="bottom-buttons">
-      <a href="adoptions.html" class="tile">ADOPTIONS</a>
-      <a href="resource.html" class="tile">RESOURCES</a>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
-

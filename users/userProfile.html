@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../shared/cat.css" />
+    <script defer src="userProfile.js"></script>
+    <style>
+      .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+        gap: 25px;
+      }
+
+      .profile-card {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(8px);
+        padding: 40px 60px;
+        border-radius: 20px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 400px;
+        max-width: 90%;
+      }
+
+      .profile-field {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .profile-field label {
+        font-weight: 600;
+        color: #1e3a5f;
+      }
+
+      .profile-field input {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #cfe7ff;
+        font-size: 1em;
+        outline: none;
+      }
+
+      .profile-field input:disabled {
+        background: #f3f6fa;
+        color: #555;
+      }
+
+      .button-row {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .profile-picture {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .profile-picture img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        background-color: rgba(173, 216, 230, 0.2);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <img
+          src="../images/catpic_left.png"
+          alt="Cat Left"
+          class="header-cat"
+        />
+        <h1>User Profile</h1>
+        <img
+          src="../images/catpic_right.png"
+          alt="Cat Right"
+          class="header-cat"
+        />
+      </div>
+      <div class="button-row">
+        <button class="tile" onclick="location.href='homePage.html'">
+          HOME
+        </button>
+      </div>
+    </header>
+
+    <div class="profile-container">
+      <div class="profile-card">
+        <div class="profile-picture">
+          <img
+            id="profilePic"
+            src="https://placekitten.com/200/200"
+            alt="User Profile Picture"
+          />
+          <input
+            type="file"
+            id="profilePicInput"
+            accept="image/*"
+            style="display: none"
+          />
+          <button class="tile" id="changePicBtn">Change Picture</button>
+        </div>
+
+        <div class="profile-field">
+          <label for="username">Username:</label>
+          <input type="text" id="username" value="CoolCat123" disabled />
+        </div>
+
+        <div class="profile-field">
+          <label for="email">Email:</label>
+          <input type="email" id="email" value="coolcat@email.com" disabled />
+        </div>
+
+        <div class="profile-field">
+          <label for="bio">Bio:</label>
+          <input
+            type="text"
+            id="bio"
+            value="I love cats and coffee!"
+            disabled
+          />
+        </div>
+
+        <div class="button-row">
+          <button class="tile" id="editBtn">Edit</button>
+          <button class="tile" id="saveBtn" style="display: none">Save</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
