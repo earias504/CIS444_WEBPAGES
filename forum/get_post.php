@@ -10,12 +10,23 @@ if ($category === '') {
     exit;
 }
 
-$sql = "SELECT post_id, user_id, category, title, body, created
+$sql = "SELECT 
+            post_id,
+            user_id,
+            category,
+            title,
+            content AS body,   
+            created
         FROM forum_posts
-        WHERE LOWER(TRIM(category)) = LOWER(TRIM(?))
+        WHERE category = ?
         ORDER BY created DESC";
 
 $stmt = $conn->prepare($sql);
+if (!$stmt) {
+    echo json_encode([]);
+    exit;
+}
+
 $stmt->bind_param('s', $category);
 $stmt->execute();
 $result = $stmt->get_result();
