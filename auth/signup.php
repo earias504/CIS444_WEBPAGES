@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 session_start();
-include("db.php");
+include("../db.php");
 
 // Only handle POST requests
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
