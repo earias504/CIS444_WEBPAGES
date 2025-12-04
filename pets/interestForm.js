@@ -1,20 +1,34 @@
-// Handle form submission
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("interestForm");
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    // Get values
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const animal = document.getElementById("animal").value;
-    const reason = document.getElementById("reason").value;
+    const cat_name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+    const gender = document.getElementById("gender").value;
+    const description = document.getElementById("reason").value;
+    const contactInfo = document.getElementById("email").value;
 
-    // Simple localStorage save (placeholder for backend connection)
-    localStorage.setItem("interestForm", JSON.stringify({ name, email, animal, reason }));
+    const response = await fetch("addAdoptionPet.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json"},
+      body: JSON.stringify({
+        cat_name,
+        age,
+        gender,
+        description,
+        contactInfo
+      })
+    });
 
-    alert("Thank you for your submission!");
-    form.reset();
+    const result = await response.json();
+
+    if (result.success) {
+      alert("Pet added to adoption list!");
+      window.location.href = "readyToAdopt.html";
+    } else {
+      alert("Error: " + result.error);
+    }
   });
 });

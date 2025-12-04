@@ -26,15 +26,15 @@ if (!isset($_SESSION["user_id"])) {
     </div>
 
     <div class="button-row">
-      <a href="userProfile.php" class="tile">USER PROFILE</a>
-      <a href="logout.php" class="tile">SIGN OUT</a>
+      <a href="users/userProfile.php" class="tile">USER PROFILE</a>
+      <a href="auth/logout.php" class="tile">SIGN OUT</a>
     </div>
   </header>
 
   <div class="container">
     <div class="profile-section">
       <div class="user-info">
-        <p class="user-name">
+        <p class="fullName">
           <strong>Name:</strong> <?php echo $_SESSION["fullName"]; ?>
         </p>
       </div>
@@ -43,14 +43,14 @@ if (!isset($_SESSION["user_id"])) {
     <h3>What do you want to do?</h3>
 
     <div class="main-buttons">
-      <a href="donations.html" class="tile">DONATIONS</a>
-      <a href="petDashboard.html" class="tile">PET DASHBOARD</a>
-      <a href="forum.html" class="tile">FORUMS</a>
+      <a href="donations/donations.html" class="tile">DONATIONS</a>
+      <a href="pets/petDashboard.html" class="tile">PET DASHBOARD</a>
+      <a href="forum/forum.html" class="tile">FORUMS</a>
     </div>
 
     <div class="bottom-buttons">
-      <a href="adoptions.html" class="tile">ADOPTIONS</a>
-      <a href="resource.html" class="tile">RESOURCES</a>
+      <a href="pets/adoptions.html" class="tile">ADOPTIONS</a>
+      <a href="shared/resource.html" class="tile">RESOURCES</a>
     </div>
   </div>
 </body>

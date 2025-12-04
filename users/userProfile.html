@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Profile</title>
-    <link rel="stylesheet" href="../shared/cat.css" />
-    <script defer src="userProfile.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile</title>
+  <link rel="stylesheet" href="../shared/cat.css" />
+  <script defer src="userProfile.js"></script>
     <style>
       .profile-container {
         display: flex;
@@ -78,69 +78,71 @@
   </head>
 
   <body>
-    <header>
-      <div class="header-content">
-        <img
-          src="../images/catpic_left.png"
-          alt="Cat Left"
-          class="header-cat"
-        />
-        <h1>User Profile</h1>
-        <img
-          src="../images/catpic_right.png"
-          alt="Cat Right"
-          class="header-cat"
-        />
-      </div>
-      <div class="button-row">
-        <button class="tile" onclick="location.href='homePage.html'">
-          HOME
-        </button>
-      </div>
-    </header>
 
-    <div class="profile-container">
-      <div class="profile-card">
-        <div class="profile-picture">
-          <img
-            id="profilePic"
-            src="https://placekitten.com/200/200"
-            alt="User Profile Picture"
-          />
-          <input
-            type="file"
-            id="profilePicInput"
-            accept="image/*"
-            style="display: none"
-          />
-          <button class="tile" id="changePicBtn">Change Picture</button>
-        </div>
+<header>
+  <div class="header-content">
+    <img src="../images/catpic_left.png" class="header-cat" />
+    <h1>User Profile</h1>
+    <img src="../images/catpic_right.png" class="header-cat" />
+  </div>
+  <div class="button-row">
+    <button class="tile" onclick="location.href='../homePage.html'">HOME</button>
+  </div>
+</header>
 
-        <div class="profile-field">
-          <label for="username">Username:</label>
-          <input type="text" id="username" value="CoolCat123" disabled />
-        </div>
+<div class="profile-container">
 
-        <div class="profile-field">
-          <label for="email">Email:</label>
-          <input type="email" id="email" value="coolcat@email.com" disabled />
-        </div>
+  <h2 id="roleDisplay"></h2> <!-- NEW displays Owner or Rescuer -->
 
-        <div class="profile-field">
-          <label for="bio">Bio:</label>
-          <input
-            type="text"
-            id="bio"
-            value="I love cats and coffee!"
-            disabled
-          />
-        </div>
+  <form class="profile-card" id="profileForm" action="updateUser.php" method="POST">
 
-        <div class="button-row">
-          <button class="tile" id="editBtn">Edit</button>
-          <button class="tile" id="saveBtn" style="display: none">Save</button>
-        </div>
-      </div>
+    <div class="profile-picture">
+      <img id="profilePic" src="../images/pfPicture1.jpg" />
+      <label>Choose Profile Picture:</label>
+      <select id="pfPicture" name="pfPicture">
+        <option value="1">Picture 1</option>
+        <option value="2">Picture 2</option>
+        <option value="3">Picture 3</option>
+        <option value="4">Picture 4</option>
+        <option value="5">Picture 5</option>
+        <option value="6">Picture 6</option>
+        <option value="7">Picture 7</option>
+        <option value="8">Picture 8</option>
+        <option value="9">Picture 9</option>
+      </select>
     </div>
-  </body>
+
+    <div class="profile-field">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" />
+    </div>
+
+    <div class="profile-field">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" disabled />
+    </div>
+
+    <div class="profile-field">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" disabled />
+    </div>
+
+    <div class="profile-field">
+      <label for="bio">Bio:</label>
+      <input type="text" id="bio" name="bio" />
+    </div>
+
+    <div class="profile-field">
+      <label for="password">New Password:</label>
+      <input type="password" id="password" name="password" placeholder="Leave blank to keep same" />
+    </div>
+
+    <div class="button-row">
+      <button class="tile" type="submit">Save Changes</button>
+    </div>
+
+  </form>
+</div>
+
+</body>
 </html>

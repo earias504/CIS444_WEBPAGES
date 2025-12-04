@@ -9,6 +9,31 @@
 
 <body>
 
+<script>
+fetch("getAdoptionCats.php")
+  .then(res => res.json())
+  .then(cats => {
+      const container = document.getElementById("adoptList");
+      container.innerHTML = "";
+
+      cats.forEach(cat => {
+          const box = document.createElement("div");
+          box.classList.add("tile");
+          box.innerHTML = `
+            <h4>${cat.cat_name}</h4>
+            <p>Age: ${cat.age}</p>
+            <p>Gender: ${cat.gender}</p>
+            <p>${cat.description}</p>
+            <p><strong>Contact:</strong> ${cat.contactInfo}</p>
+          `;
+          container.appendChild(box);
+      });
+  })
+  .catch(e => console.error(e));
+</script>
+
+
+
     <!-- MATCHING HEADER -->
     <header>
         <div class="header-content">
@@ -56,7 +81,6 @@
     <div class="cat-info">
         <p>8 month old kitty that enjoys playing with toys. Looking for an owner with another fur friend that likes to nap and play.</p>
         <p><strong>Location:</strong> Oceanside, CA</p>
-        <a href="powpow.html" class="details-button">View Details</a>
     </div>
 </section>
 

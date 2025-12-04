@@ -1,52 +1,33 @@
-// Elements
-const editBtn = document.getElementById("editBtn");
-const saveBtn = document.getElementById("saveBtn");
-const inputs = document.querySelectorAll(".profile-field input");
-const profilePic = document.getElementById("profilePic");
-const changePicBtn = document.getElementById("changePicBtn");
-const profilePicInput = document.getElementById("profilePicInput");
+// userProfile.js
 
-// Load from localStorage if any previous data
 window.addEventListener("load", () => {
-  inputs.forEach((input) => {
-    const savedValue = localStorage.getItem(input.id);
-    if (savedValue) input.value = savedValue;
+  fetch("userProfile.php")
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.error) {
+        alert("Error loading profile");
+        return;
+      }
+
+      document.getElementById("fullName").value = data.fullName;
+      document.getElementById("username").value = data.username;
+      document.getElementById("email").value = data.email;
+      document.getElementById("bio").value = data.bio ?? "";
+
+      // Role display
+      document.getElementById("roleDisplay").innerText =
+        data.role === "rescuer" ? "Rescuer Account" : "Pet Owner";
+
+      // Profile picture
+      document.getElementById("pfPicture").value = data.pfPicture;
+      document.getElementById("profilePic").src =
+        `../images/pfPicture${data.pfPicture}.jpg`;
+    });
+
+  // When user selects a picture
+  document.getElementById("pfPicture").addEventListener("change", (e) => {
+    const num = e.target.value;
+    document.getElementById("profilePic").src =
+      `../images/pfPicture${num}.jpg`;
   });
-
-  const savedPic = localStorage.getItem("profilePic");
-  if (savedPic) profilePic.src = savedPic;
-});
-
-// Enable edit mode
-editBtn.addEventListener("click", () => {
-  inputs.forEach((input) => (input.disabled = false));
-  editBtn.style.display = "none";
-  saveBtn.style.display = "inline-block";
-});
-
-// Save changes
-saveBtn.addEventListener("click", () => {
-  inputs.forEach((input) => {
-    input.disabled = true;
-    localStorage.setItem(input.id, input.value);
-  });
-
-  editBtn.style.display = "inline-block";
-  saveBtn.style.display = "none";
-  alert("Profile saved!");
-});
-
-// Change profile picture
-changePicBtn.addEventListener("click", () => profilePicInput.click());
-
-profilePicInput.addEventListener("change", (event) => {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      profilePic.src = e.target.result;
-      localStorage.setItem("profilePic", e.target.result);
-    };
-    reader.readAsDataURL(file);
-  }
 });

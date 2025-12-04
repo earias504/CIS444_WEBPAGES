@@ -11,7 +11,7 @@
             rgba(255, 234, 246, 0.8),
             rgba(255, 234, 246, 0.8)
           ),
-          url("images/catprint.jpg");
+          url("../images/catprint.jpg");
         background-repeat: repeat;
         background-size: auto;
         font-family: "Nunito", sans-serif;
@@ -158,7 +158,13 @@
       </div>
     </header>
 
-    <div class="add-pet-container">
+    <form
+      id="addPetForm"
+      class="add-pet-container"
+      action="addPet.php"
+      method="POST"
+      enctype="multipart/form-data"
+    >
       <h1>New Pet</h1>
 
       <div class="pet-picture">
@@ -167,13 +173,18 @@
           src="https://placekitten.com/200/200"
           alt="Pet Picture"
         />
-        <input type="file" id="petPicInput" accept="image/*" />
+        <input type="file" id="petPicInput" name="pet_pic" accept="image/*" />
         <small>Click the image to upload</small>
       </div>
 
       <div class="form-group">
         <label for="pet-name">Pet Name</label>
-        <input type="text" id="pet-name" placeholder="Enter pet name" />
+        <input
+          type="text"
+          id="pet-name"
+          name="pet_name"
+          placeholder="Enter pet name"
+        />
       </div>
 
       <div class="form-group">
@@ -181,6 +192,7 @@
         <input
           type="number"
           id="pet-age"
+          name="pet_age"
           placeholder="Enter age in years"
           min="0"
         />
@@ -191,6 +203,7 @@
         <input
           type="number"
           id="pet-weight"
+          name="pet_weight"
           placeholder="Enter weight"
           min="0"
         />
@@ -198,12 +211,16 @@
 
       <div class="form-group">
         <label for="pet-medical">Medical Notes</label>
-        <textarea id="pet-medical" placeholder="Enter medical notes"></textarea>
+        <textarea
+          id="pet-medical"
+          name="pet_medical"
+          placeholder="Enter medical notes"
+        ></textarea>
       </div>
 
       <div class="form-group">
         <label for="pet-gender">Gender</label>
-        <select id="pet-gender">
+        <select id="pet-gender" name="pet_gender">
           <option value="Unknown">Unknown</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
@@ -211,10 +228,10 @@
       </div>
 
       <div class="buttons">
-        <button type="button" class="tile" onclick="submitPet()">Submit</button>
+        <button type="submit" class="tile">Submit</button>
         <button type="button" class="tile" onclick="cancelPet()">Cancel</button>
       </div>
-    </div>
+    </form>
 
     <script>
       const petPic = document.getElementById("petPic");
@@ -233,27 +250,6 @@
       });
 
       function cancelPet() {
-        window.location.href = "petDashboard.html";
-      }
-
-      function submitPet() {
-        const name = document.getElementById("pet-name").value.trim();
-        const age = document.getElementById("pet-age").value.trim();
-        const weight = document.getElementById("pet-weight").value.trim();
-        const medical = document.getElementById("pet-medical").value.trim();
-        const gender = document.getElementById("pet-gender").value;
-        const photo = petPic.src;
-
-        if (!name) {
-          alert("Please enter a pet name!");
-          return;
-        }
-
-        const newPet = { name, age, weight, medical, gender, photo };
-        let pets = JSON.parse(localStorage.getItem("myPets")) || [];
-        pets.push(newPet);
-        localStorage.setItem("myPets", JSON.stringify(pets));
-
         window.location.href = "petDashboard.html";
       }
     </script>

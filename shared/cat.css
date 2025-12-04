@@ -248,3 +248,28 @@ h3 {
   font-size: 0.95em;
   margin: 0;
 }
+
+
+.cat-card, .pets-container .pets-list .cat-card {
+  background: #ffe6f3;
+  border-radius: 25px;
+  padding: 20px;
+  width: 320px;
+  margin: 25px auto;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(255, 105, 180, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cat-card .cat-info p, .cat-card .cat-info, .pets-container .pets-list .cat-card .cat-info p{
+  background: #fff0fa;
+  padding: 10px 14px;
+  border-radius: 15px;
+  margin: 8px auto;
+  width: 90%;
+  color: #a34d77;
+  font-size: 1em;
+  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.12);
+  text-align: center;
+}
+

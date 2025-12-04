@@ -147,6 +147,20 @@
   </head>
 
   <body>
+    <script>
+fetch("../users/getUserInfo.php")
+  .then(res => res.json())
+  .then(user => {
+      if (!user || !user.role) return;
+
+      if (user.role === "owner") {
+          alert("Only rescuers can access this page.");
+          window.location.href = "adoptions.html";
+      }
+  })
+  .catch(err => console.error("Error:", err));
+</script>
+
     <header>
       <div class="header-content">
         <img
@@ -203,5 +217,6 @@
         <button type="submit">Submit</button>
       </form>
     </div>
+    
   </body>
 </html>

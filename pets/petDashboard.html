@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pet Dashboard</title>
     <link rel="stylesheet" href="../shared/cat.css" />
+
     <style>
       main {
         display: flex;
@@ -190,51 +191,6 @@
       </div>
     </main>
 
-    <script>
-      function goToCreateLog() {
-        window.location.href = "../logs/createLog.html";
-      }
-
-      function goToAddPet() {
-        window.location.href = "addPet.html";
-      }
-
-      // Load logs from localStorage
-      function loadLogs() {
-        const logsList = document.getElementById("logsList");
-        const logs = JSON.parse(localStorage.getItem("petLogs")) || [];
-        logsList.innerHTML = "";
-
-        logs.forEach((log, index) => {
-          const div = document.createElement("div");
-          div.className = "log-item";
-
-          const textSpan = document.createElement("span");
-          textSpan.textContent = log;
-
-          const deleteBtn = document.createElement("button");
-          deleteBtn.className = "delete-btn";
-          deleteBtn.textContent = "✕";
-          deleteBtn.onclick = () => deleteLog(index);
-
-          div.appendChild(textSpan);
-          div.appendChild(deleteBtn);
-          logsList.appendChild(div);
-        });
-      }
-
-      // Delete log and update localStorage
-      function deleteLog(index) {
-        const logs = JSON.parse(localStorage.getItem("petLogs")) || [];
-        logs.splice(index, 1);
-        localStorage.setItem("petLogs", JSON.stringify(logs));
-        loadLogs();
-      }
-
-      // Initialize logs on page load
-      window.addEventListener("DOMContentLoaded", () => {
-        loadLogs();
-      });
-    </script>
+    <script src="petDashboard.js"></script>
   </body>
 </html>

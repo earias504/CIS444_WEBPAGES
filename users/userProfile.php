@@ -1,36 +1,27 @@
 <?php
 session_start();
+include("../db.php");
+
+// must be logged in
 if (!isset($_SESSION["user_id"])) {
-    header("Location: ../auth/login.html");
+    http_response_code(403);
+    echo json_encode(["error" => "Not logged in"]);
     exit();
 }
 
-$fullName = htmlspecialchars($_SESSION["fullName"]);
-$username = htmlspecialchars($_SESSION["username"]);
-$email = htmlspecialchars($_SESSION["email"]);
-$bio = htmlspecialchars($_SESSION["bio"]);
-$role = htmlspecialchars($_SESSION["role"]);
+$user_id = $_SESSION["user_id"];
+
+$sql = "SELECT fullName, username, email, bio, role, pfPicture
+        FROM user_table
+        WHERE user_id = $user_id
+        LIMIT 1";
+
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows === 1) {
+    echo json_encode($result->fetch_assoc());
+} else {
+    http_response_code(500);
+    echo json_encode(["error" => "User not found"]);
+}
 ?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>User Profile</title>
-    <link rel="stylesheet" href="cat.css">
-</head>
-
-<body>
-
-    <?php include("userProfile.html"); ?>
-
-    <script>
-        document.getElementById("nameField").innerText = "Name: <?php echo $fullName; ?>";
-        document.getElementById("emailField").innerText = "Email: <?php echo $email; ?>";
-        document.getElementById("bioField").innerText = "Bio: <?php echo $bio; ?>";
-        document.getElementById("roleField").innerText = "Role: <?php echo $role; ?>";
-    </script>
-
-</body>
-
-</html>
