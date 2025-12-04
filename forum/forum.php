@@ -1,4 +1,10 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();                       
+
 header('Content-Type: application/json');
 
 require '../db.php';
@@ -33,11 +39,23 @@ function get_post($conn)
         return;
     }
 
-    $sql = "SELECT post_id, user_id, category, title, body, created
+    $sql = "SELECT 
+                post_id,
+                user_id,
+                category,
+                title,
+                content AS body,  
+                created
             FROM forum_posts
             WHERE post_id = ?";
 
     $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        http_response_code(500);
+        echo json_encode(['error' => 'DB error (prepare get_post): ' . $conn->error]);
+        return;
+    }
+
     $stmt->bind_param('i', $post_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -60,12 +78,23 @@ function get_comments($conn)
         return;
     }
 
-    $sql = "SELECT comment_id, post_id, user_id, comment_text, created
+    $sql = "SELECT 
+                comment_id,
+                post_id,
+                user_id,
+                comment AS comment_text,
+                created
             FROM forum_comments
             WHERE post_id = ?
             ORDER BY created ASC";
 
     $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        http_response_code(500);
+        echo json_encode(['error' => 'DB error (prepare get_comments): ' . $conn->error]);
+        return;
+    }
+
     $stmt->bind_param('i', $post_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -89,8 +118,12 @@ function add_comment($conn)
     $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
     $comment_text = isset($_POST['comment_text']) ? trim($_POST['comment_text']) : '';
 
-    // TODO: replace with real logged-in user
-    $user_id = 1;
+    if (!isset($_SESSION['user_id'])) {
+        http_response_code(401);
+        echo json_encode(['error' => 'You must be logged in to comment.']);
+        return;
+    }
+    $user_id = (int) $_SESSION['user_id'];
 
     if ($post_id <= 0 || $comment_text === '') {
         http_response_code(400);
@@ -98,10 +131,16 @@ function add_comment($conn)
         return;
     }
 
-    $sql = "INSERT INTO forum_comments (post_id, user_id, comment_text)
+    $sql = "INSERT INTO forum_comments (post_id, user_id, comment)
             VALUES (?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        http_response_code(500);
+        echo json_encode(['error' => 'DB error (prepare add_comment): ' . $conn->error]);
+        return;
+    }
+
     $stmt->bind_param('iis', $post_id, $user_id, $comment_text);
 
     if ($stmt->execute()) {
@@ -111,6 +150,6 @@ function add_comment($conn)
         ]);
     } else {
         http_response_code(500);
-        echo json_encode(['error' => 'Insert failed']);
+        echo json_encode(['error' => 'Insert failed: ' . $stmt->error]);
     }
 }
